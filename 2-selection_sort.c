@@ -9,5 +9,22 @@
  */
 void selection_sort(int *array, size_t size)
 {
-	/*Implement logic*/
+	size_t i, j;
+	int temp, small;
+
+	if (array == NULL || size < 2)
+		return;
+	for (i = 0; i < (size - 1); i++)
+	{
+		small = i;
+		for (j = (i + 1); j < size; j++)
+		{
+			if (array[small] > array[j])
+				small = j;
+		}
+		temp = array[i];
+		array[i] = array[small];
+		array[small] = temp;
+		print_array(array, size);
+	}
 }
